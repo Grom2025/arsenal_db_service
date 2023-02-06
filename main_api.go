@@ -6,7 +6,7 @@ import (
 	"github.com/jackc/pgx/v5"
 	"github.com/joho/godotenv"
 	"log"
-	http "net/http"
+	"net/http"
 	"os"
 )
 
@@ -79,7 +79,7 @@ func main() {
 	}
 	conn, err = pgx.Connect(context.Background(), os.Getenv("DATABASE_URL"))
 	if err != nil {
-		log.Println(os.Stderr, "Unable to connect to database: %v\n", err)
+		log.Printf("Unable to connect to database: %v\n\n", err)
 		os.Exit(1)
 	}
 	defer func(conn *pgx.Conn, ctx context.Context) {
